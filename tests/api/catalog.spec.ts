@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import { expectApiCode, expectApiMessage, postForm, putForm, readJson } from './support/apiHelpers';
 
 test.describe('Automation Exercise API catalog cases', () => {
-  test('API 1 - Get All Products List', async ({ request }) => {
+  test('API 1 - Get All Products List @smoke @regression', async ({ request }) => {
     const response = await request.get('/api/productsList');
     const body = await readJson(response);
 
@@ -12,7 +12,7 @@ test.describe('Automation Exercise API catalog cases', () => {
     expect((body.products as unknown[]).length).toBeGreaterThan(0);
   });
 
-  test('API 2 - POST To All Products List', async ({ request }) => {
+  test('API 2 - POST To All Products List @regression', async ({ request }) => {
     const response = await request.post('/api/productsList');
     const body = await readJson(response);
 
@@ -21,7 +21,7 @@ test.describe('Automation Exercise API catalog cases', () => {
     expectApiMessage(body, /this request method is not supported/i);
   });
 
-  test('API 3 - Get All Brands List', async ({ request }) => {
+  test('API 3 - Get All Brands List @smoke @regression', async ({ request }) => {
     const response = await request.get('/api/brandsList');
     const body = await readJson(response);
 
@@ -31,7 +31,7 @@ test.describe('Automation Exercise API catalog cases', () => {
     expect((body.brands as unknown[]).length).toBeGreaterThan(0);
   });
 
-  test('API 4 - PUT To All Brands List', async ({ request }) => {
+  test('API 4 - PUT To All Brands List @regression', async ({ request }) => {
     const response = await putForm(request, '/api/brandsList', {});
     const body = await readJson(response);
 
@@ -40,7 +40,7 @@ test.describe('Automation Exercise API catalog cases', () => {
     expectApiMessage(body, /this request method is not supported/i);
   });
 
-  test('API 5 - POST To Search Product', async ({ request }) => {
+  test('API 5 - POST To Search Product @smoke @regression', async ({ request }) => {
     const response = await postForm(request, '/api/searchProduct', {
       search_product: 'top',
     });
@@ -51,7 +51,7 @@ test.describe('Automation Exercise API catalog cases', () => {
     expect((body.products as unknown[]).length).toBeGreaterThan(0);
   });
 
-  test('API 6 - POST To Search Product without search_product parameter', async ({ request }) => {
+  test('API 6 - POST To Search Product without search_product parameter @regression', async ({ request }) => {
     const response = await postForm(request, '/api/searchProduct', {});
     const body = await readJson(response);
 

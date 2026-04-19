@@ -3,7 +3,7 @@ import { CartPage } from '../../pages/CartPage';
 import { HomePage } from '../../pages/HomePage';
 
 test.describe('Automation Exercise subscription and scroll cases', () => {
-  test('TC10 - Verify Subscription in home page', async ({ page }) => {
+  test('TC10 - Verify Subscription in home page @regression', async ({ page }) => {
     const homePage = new HomePage(page);
 
     await homePage.open();
@@ -13,7 +13,7 @@ test.describe('Automation Exercise subscription and scroll cases', () => {
     await homePage.footer.expectSubscriptionSuccess();
   });
 
-  test('TC11 - Verify Subscription in Cart page', async ({ page }) => {
+  test('TC11 - Verify Subscription in Cart page @regression', async ({ page }) => {
     const homePage = new HomePage(page);
     const cartPage = new CartPage(page);
 
@@ -26,7 +26,7 @@ test.describe('Automation Exercise subscription and scroll cases', () => {
     await cartPage.footer.expectSubscriptionSuccess();
   });
 
-  test('TC25 - Verify Scroll Up using Arrow button and Scroll Down functionality', async ({ page }) => {
+  test('TC25 - Verify Scroll Up using Arrow button and Scroll Down functionality @regression', async ({ page }) => {
     const homePage = new HomePage(page);
 
     await homePage.open();
@@ -38,7 +38,7 @@ test.describe('Automation Exercise subscription and scroll cases', () => {
     ).toBeVisible();
   });
 
-  test('TC26 - Verify Scroll Up without Arrow button and Scroll Down functionality', async ({ page }) => {
+  test('TC26 - Verify Scroll Up without Arrow button and Scroll Down functionality @regression', async ({ page }) => {
     const homePage = new HomePage(page);
 
     await homePage.open();

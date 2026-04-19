@@ -4,7 +4,7 @@ import { HomePage } from '../../pages/HomePage';
 import { TestCasesPage } from '../../pages/TestCasesPage';
 
 test.describe('Automation Exercise navigation cases', () => {
-  test('TC06 - Contact Us Form', async ({ page }) => {
+  test('TC06 - Contact Us Form @smoke @regression', async ({ page }) => {
     const contactUsPage = new ContactUsPage(page);
     const homePage = new HomePage(page);
 
@@ -22,7 +22,7 @@ test.describe('Automation Exercise navigation cases', () => {
     await homePage.expectLoaded();
   });
 
-  test('TC07 - Verify Test Cases Page', async ({ page }) => {
+  test('TC07 - Verify Test Cases Page @regression', async ({ page }) => {
     const homePage = new HomePage(page);
     const testCasesPage = new TestCasesPage(page);
 

@@ -10,21 +10,21 @@ import {
 import { createApiUser } from './support/apiData';
 
 test.describe('Automation Exercise API account cases', () => {
-  test('API 11 - POST To Create Register User Account', async ({ request }) => {
+  test('API 11 - POST To Create Register User Account @smoke @regression', async ({ request }) => {
     const user = createApiUser('create');
 
     await createUserByApi(request, user);
     await deleteUserByApi(request, user);
   });
 
-  test('API 12 - DELETE METHOD To Delete User Account', async ({ request }) => {
+  test('API 12 - DELETE METHOD To Delete User Account @regression', async ({ request }) => {
     const user = createApiUser('delete');
 
     await createUserByApi(request, user);
     await deleteUserByApi(request, user);
   });
 
-  test('API 13 - PUT METHOD To Update User Account', async ({ request }) => {
+  test('API 13 - PUT METHOD To Update User Account @smoke @regression', async ({ request }) => {
     const user = createApiUser('update');
 
     await createUserByApi(request, user);
@@ -54,7 +54,7 @@ test.describe('Automation Exercise API account cases', () => {
     await deleteUserByApi(request, user);
   });
 
-  test('API 14 - GET user account detail by email', async ({ request }) => {
+  test('API 14 - GET user account detail by email @smoke @regression', async ({ request }) => {
     const user = createApiUser('details');
 
     await createUserByApi(request, user);

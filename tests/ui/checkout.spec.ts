@@ -28,7 +28,7 @@ async function completeOrder(page: Page) {
 }
 
 test.describe('Automation Exercise checkout cases', () => {
-  test('TC14 - Place Order Register while Checkout', async ({ page }) => {
+  test('TC14 - Place Order Register while Checkout @smoke @regression', async ({ page }) => {
     const user = createTestUser('tc14');
     const cartPage = new CartPage(page);
 
@@ -43,7 +43,7 @@ test.describe('Automation Exercise checkout cases', () => {
     await deleteCurrentUser(page);
   });
 
-  test('TC15 - Place Order Register before Checkout', async ({ page }) => {
+  test('TC15 - Place Order Register before Checkout @regression', async ({ page }) => {
     const user = createTestUser('tc15');
     const cartPage = new CartPage(page);
     const productsPage = new ProductsPage(page);
@@ -57,7 +57,7 @@ test.describe('Automation Exercise checkout cases', () => {
     await deleteCurrentUser(page);
   });
 
-  test('TC16 - Place Order Login before Checkout', async ({ page }) => {
+  test('TC16 - Place Order Login before Checkout @regression', async ({ page }) => {
     const user = createTestUser('tc16');
     const cartPage = new CartPage(page);
     const productsPage = new ProductsPage(page);
@@ -73,7 +73,7 @@ test.describe('Automation Exercise checkout cases', () => {
     await deleteCurrentUser(page);
   });
 
-  test('TC23 - Verify address details in checkout page', async ({ page }) => {
+  test('TC23 - Verify address details in checkout page @regression', async ({ page }) => {
     const user = createTestUser('tc23');
     const cartPage = new CartPage(page);
     const checkoutPage = new CheckoutPage(page);
@@ -110,7 +110,7 @@ test.describe('Automation Exercise checkout cases', () => {
     await deleteCurrentUser(page);
   });
 
-  test('TC24 - Download Invoice after purchase order', async ({ page }) => {
+  test('TC24 - Download Invoice after purchase order @regression', async ({ page }) => {
     const user = createTestUser('tc24');
     const cartPage = new CartPage(page);
     const checkoutPage = new CheckoutPage(page);

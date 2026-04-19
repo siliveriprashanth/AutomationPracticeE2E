@@ -7,7 +7,7 @@ import { createTestUser } from './support/testData';
 import { deleteCurrentUser, loginUser, logoutUser, registerUser } from './support/userFlows';
 
 test.describe('Automation Exercise product cases', () => {
-  test('TC08 - Verify All Products and product detail page', async ({ page }) => {
+  test('TC08 - Verify All Products and product detail page @smoke @regression', async ({ page }) => {
     const homePage = new HomePage(page);
     const productsPage = new ProductsPage(page);
     const productDetailsPage = new ProductDetailsPage(page);
@@ -21,7 +21,7 @@ test.describe('Automation Exercise product cases', () => {
     await productDetailsPage.expectProductDetailsVisible();
   });
 
-  test('TC09 - Search Product', async ({ page }) => {
+  test('TC09 - Search Product @smoke @regression', async ({ page }) => {
     const homePage = new HomePage(page);
     const productsPage = new ProductsPage(page);
 
@@ -32,7 +32,7 @@ test.describe('Automation Exercise product cases', () => {
     await productsPage.expectSearchResultsContain('Blue Top');
   });
 
-  test('TC18 - View Category Products', async ({ page }) => {
+  test('TC18 - View Category Products @regression', async ({ page }) => {
     const homePage = new HomePage(page);
     const productsPage = new ProductsPage(page);
 
@@ -44,7 +44,7 @@ test.describe('Automation Exercise product cases', () => {
     await productsPage.expectCategoryPageVisible('Men');
   });
 
-  test('TC19 - View and Cart Brand Products', async ({ page }) => {
+  test('TC19 - View and Cart Brand Products @regression', async ({ page }) => {
     const productsPage = new ProductsPage(page);
 
     await productsPage.goto();
@@ -56,7 +56,7 @@ test.describe('Automation Exercise product cases', () => {
     await productsPage.expectBrandPageVisible('H&M');
   });
 
-  test('TC20 - Search Products and Verify Cart After Login', async ({ page }) => {
+  test('TC20 - Search Products and Verify Cart After Login @regression', async ({ page }) => {
     const user = createTestUser('tc20');
     const productsPage = new ProductsPage(page);
     const cartPage = new CartPage(page);
@@ -80,7 +80,7 @@ test.describe('Automation Exercise product cases', () => {
     await deleteCurrentUser(page);
   });
 
-  test('TC21 - Add review on product', async ({ page }) => {
+  test('TC21 - Add review on product @regression', async ({ page }) => {
     const productsPage = new ProductsPage(page);
     const productDetailsPage = new ProductDetailsPage(page);
 
@@ -96,7 +96,7 @@ test.describe('Automation Exercise product cases', () => {
     await productDetailsPage.expectReviewSuccess();
   });
 
-  test('TC22 - Add to cart from Recommended items', async ({ page }) => {
+  test('TC22 - Add to cart from Recommended items @regression', async ({ page }) => {
     const homePage = new HomePage(page);
     const cartPage = new CartPage(page);
 

@@ -11,7 +11,7 @@ import {
 import { createApiUser } from './support/apiData';
 
 test.describe('Automation Exercise API login cases', () => {
-  test('API 7 - POST To Verify Login with valid details', async ({ request }) => {
+  test('API 7 - POST To Verify Login with valid details @smoke @regression', async ({ request }) => {
     const user = createApiUser('login-valid');
 
     await createUserByApi(request, user);
@@ -29,7 +29,7 @@ test.describe('Automation Exercise API login cases', () => {
     await deleteUserByApi(request, user);
   });
 
-  test('API 8 - POST To Verify Login without email parameter', async ({ request }) => {
+  test('API 8 - POST To Verify Login without email parameter @regression', async ({ request }) => {
     const response = await postForm(request, '/api/verifyLogin', {
       password: 'Password@123',
     });
@@ -40,7 +40,7 @@ test.describe('Automation Exercise API login cases', () => {
     expectApiMessage(body, /email or password parameter is missing/i);
   });
 
-  test('API 9 - DELETE To Verify Login', async ({ request }) => {
+  test('API 9 - DELETE To Verify Login @regression', async ({ request }) => {
     const response = await deleteForm(request, '/api/verifyLogin', {});
     const body = await readJson(response);
 
@@ -49,7 +49,7 @@ test.describe('Automation Exercise API login cases', () => {
     expectApiMessage(body, /this request method is not supported/i);
   });
 
-  test('API 10 - POST To Verify Login with invalid details', async ({ request }) => {
+  test('API 10 - POST To Verify Login with invalid details @regression', async ({ request }) => {
     const response = await postForm(request, '/api/verifyLogin', {
       email: `missing.${Date.now()}@example.com`,
       password: 'WrongPassword@123',

@@ -5,7 +5,7 @@ import { ProductDetailsPage } from '../../pages/ProductDetailsPage';
 import { ProductsPage } from '../../pages/ProductsPage';
 
 test.describe('Automation Exercise cart cases', () => {
-  test('TC12 - Add Products in Cart', async ({ page }) => {
+  test('TC12 - Add Products in Cart @smoke @regression', async ({ page }) => {
     const homePage = new HomePage(page);
     const productsPage = new ProductsPage(page);
     const cartPage = new CartPage(page);
@@ -22,7 +22,7 @@ test.describe('Automation Exercise cart cases', () => {
     await cartPage.expectLineItem('Men Tshirt', 'Rs. 400', '1', 'Rs. 400');
   });
 
-  test('TC13 - Verify Product quantity in Cart', async ({ page }) => {
+  test('TC13 - Verify Product quantity in Cart @regression', async ({ page }) => {
     const homePage = new HomePage(page);
     const productDetailsPage = new ProductDetailsPage(page);
     const cartPage = new CartPage(page);
@@ -36,7 +36,7 @@ test.describe('Automation Exercise cart cases', () => {
     await cartPage.expectProductQuantity('Blue Top', '4');
   });
 
-  test('TC17 - Remove Products From Cart', async ({ page }) => {
+  test('TC17 - Remove Products From Cart @regression', async ({ page }) => {
     const productsPage = new ProductsPage(page);
     const cartPage = new CartPage(page);
 

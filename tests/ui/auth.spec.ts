@@ -5,7 +5,7 @@ import { createTestUser } from './support/testData';
 import { deleteCurrentUser, loginUser, logoutUser, registerUser } from './support/userFlows';
 
 test.describe('Automation Exercise auth cases', () => {
-  test('TC01 - Register User', async ({ page }) => {
+  test('TC01 - Register User @smoke @regression', async ({ page }) => {
     const user = createTestUser('tc01');
 
     await registerUser(page, user);
@@ -13,7 +13,7 @@ test.describe('Automation Exercise auth cases', () => {
     await expect(page).toHaveURL(/automationexercise\.com\/?$/);
   });
 
-  test('TC02 - Login User with correct email and password', async ({ page }) => {
+  test('TC02 - Login User with correct email and password @smoke @regression', async ({ page }) => {
     const user = createTestUser('tc02');
 
     await registerUser(page, user);
@@ -22,7 +22,7 @@ test.describe('Automation Exercise auth cases', () => {
     await deleteCurrentUser(page);
   });
 
-  test('TC03 - Login User with incorrect email and password', async ({ page }) => {
+  test('TC03 - Login User with incorrect email and password @smoke @regression', async ({ page }) => {
     const homePage = new HomePage(page);
     const loginPage = new LoginPage(page);
 
@@ -33,7 +33,7 @@ test.describe('Automation Exercise auth cases', () => {
     await loginPage.expectLoginError();
   });
 
-  test('TC04 - Logout User', async ({ page }) => {
+  test('TC04 - Logout User @regression', async ({ page }) => {
     const user = createTestUser('tc04');
 
     await registerUser(page, user);
@@ -42,7 +42,7 @@ test.describe('Automation Exercise auth cases', () => {
     await deleteCurrentUser(page);
   });
 
-  test('TC05 - Register User with existing email', async ({ page }) => {
+  test('TC05 - Register User with existing email @regression', async ({ page }) => {
     const user = createTestUser('tc05');
     const loginPage = new LoginPage(page);
 
