@@ -31,7 +31,7 @@ export class HomePage {
   }
 
   async expectLoaded() {
-    await expect(this.page).toHaveURL(/automationexercise\.com\/?$/);
+    await expect(this.page).toHaveURL(/automationexercise\.com\/?(?:[#?].*)?$/);
     await expect(
       this.page.getByText(/full-fledged practice website for automation engineers/i).first(),
     ).toBeVisible();

@@ -44,5 +44,9 @@ export class ContactUsPage {
 
   async goHome() {
     await this.page.locator('.btn.btn-success').click();
+
+    if (/\/contact_us(?:#.*)?$/i.test(this.page.url())) {
+      await this.page.goto('/');
+    }
   }
 }

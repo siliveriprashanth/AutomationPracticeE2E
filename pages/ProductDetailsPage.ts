@@ -34,6 +34,14 @@ export class ProductDetailsPage {
   }
 
   async viewCartFromModal() {
+    await expect(this.page.getByText(/your product has been added to cart/i)).toBeVisible();
+    const viewCartLink = this.page.getByRole('link', { name: /view cart/i }).first();
+
+    if (await viewCartLink.isVisible().catch(() => false)) {
+      await viewCartLink.click();
+      return;
+    }
+
     await this.page.goto('/view_cart');
   }
 
